@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="720" height="190" viewBox="0 0 720 190">
+<style>
+text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.title { fill: #c9d1d9; font-size: 20px; font-weight: bold; }
+.label { fill: #8b949e; font-size: 13px; }
+.value { fill: #c9d1d9; font-size: 24px; font-weight: bold; }
+</style>
+
+<rect width="100%" height="100%" rx="10" fill="#0d1117"/>
+
+<text x="28" y="36" class="title">
+  megaagyaaaaat / GITHUB ACTIVITY
+</text>
+
+<text x="28" y="70" class="label">CONTRIBUTIONS</text>
+<text x="28" y="101" class="value">17</text>
+
+<text x="190" y="70" class="label">COMMITS</text>
+<text x="190" y="101" class="value">0</text>
+
+<text x="350" y="70" class="label">ISSUES</text>
+<text x="350" y="101" class="value">0</text>
+
+<text x="510" y="70" class="label">PULL REQUESTS</text>
+<text x="510" y="101" class="value">0</text>
+
+<text x="28" y="145" class="label">REVIEWS</text>
+<text x="28" y="172" class="value">0</text>
+
+<text x="190" y="145" class="label">STATUS</text>
+<text x="190" y="172" class="value">ACTIVE</text>
+
+</svg>

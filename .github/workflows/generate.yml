@@ -1,0 +1,62 @@
+name: Refresh profile
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow numpy opencv-python-headless rembg onnxruntime
+
+      - name: Generate portrait
+        run: |
+          python scripts/make_portrait.py \
+            image.jpeg \
+            ascii.svg \
+            --crop 130,40,610,730
+
+      - name: Embed portrait font
+        run: |
+          python scripts/embed_portrait_font.py
+
+      - name: Generate statistics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_LOGIN: ${{ github.repository_owner }}
+        run: |
+          python scripts/make_stats.py
+          python scripts/make_stats_svg.py
+
+      - name: Commit generated files
+        run: |
+          FILES="ascii.svg stats.svg"
+
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "No generated changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- $FILES
+          git commit -m "stats: refresh"
+          git push
