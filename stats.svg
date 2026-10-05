@@ -16,10 +16,10 @@ text {
 </text>
 
 <text x="28" y="70" class="label">CONTRIBUTIONS</text>
-<text x="28" y="101" class="value">18</text>
+<text x="28" y="101" class="value">20</text>
 
 <text x="190" y="70" class="label">COMMITS</text>
-<text x="190" y="101" class="value">1</text>
+<text x="190" y="101" class="value">2</text>
 
 <text x="350" y="70" class="label">ISSUES</text>
 <text x="350" y="101" class="value">0</text>
