@@ -16,7 +16,7 @@ text {
 </text>
 
 <text x="28" y="70" class="label">CONTRIBUTIONS</text>
-<text x="28" y="101" class="value">20</text>
+<text x="28" y="101" class="value">21</text>
 
 <text x="190" y="70" class="label">COMMITS</text>
 <text x="190" y="101" class="value">2</text>
